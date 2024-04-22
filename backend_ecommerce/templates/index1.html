@@ -1,0 +1,37 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div>
+            {% for category in categories %}
+            {% if category.name == "Điện thoại" %}
+
+                {% if category.products.exists %}
+                    <ul>
+                    {% for product in category.products.all %}
+                        <li>
+                        {{ product.name }} - {{ product.price }} ({{ product.unit }})
+                        </li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endif %}
+            {% if category.name == "Máy tính" %}
+                    {% if category.products.exists %}
+                        <ul>
+                        {% for product in category.products.all %}
+                            <li>
+                            {{ product.name }} - {{ product.price }} ({{ product.unit }})
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+            {% endif %}    
+    {% endfor %}
+        </div>
+    </body>
+    </html>
